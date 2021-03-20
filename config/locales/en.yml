@@ -31,3 +31,22 @@
 
 en:
   hello: "Hello world"
+  button:
+    show: "Show"
+    edit: "Edit"
+    destroy: "Destroy"
+    back: "Back"
+    new: "New Book"
+  subtitle:
+    books: "Books"
+    EditingBook: "Editing Book"
+  notice:
+    create: "Book was successfully created."
+    update: "Book was successfully updated."
+    destroy: "Book was successfully destroyed."
+  confirm:
+    destroy: "Are you sure?"
+  helpers:
+    submit:
+      create: create
+      update: update
