@@ -9,4 +9,5 @@ class User < ApplicationRecord
     validates :address
     validates :description
   end
+  paginates_per 5
 end
