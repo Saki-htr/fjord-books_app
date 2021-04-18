@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-
   protected
 
   # アカウント編集後、マイページにリダイレクト
