@@ -1,5 +1,7 @@
 ---
 ja:
+  users: 一覧
+  edit: 編集
   activerecord:
     errors:
       messages:
