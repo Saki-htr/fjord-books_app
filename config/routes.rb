@@ -3,11 +3,6 @@ Rails.application.routes.draw do
   devise_for :users,controllers: {
     registrations: 'users/registrations'
   }
-  # get 'users/:id', to: 'users#show', as: 'user_page'
-
-  devise_scope :user do
-    root to: 'devise/sessions#new'
-  end
 
   #users=index,users#showのルーティング追加
   resources :users, only: [:index, :show]
