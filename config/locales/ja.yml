@@ -1,0 +1,21 @@
+ja:
+  hello: こんにちは
+  button:
+    show: 詳細
+    edit: 編集
+    back: 戻る
+    destroy: 削除
+    new: 新規登録
+  subtitle:
+    books: 本棚
+    EditingBook: 本の編集
+  notice:
+    create: 本を登録しました
+    update: 本の情報を更新しました
+    destroy: 本を削除しました
+  confirm:
+    destroy: 本当に消してもよろしいですか?
+  helpers:
+    submit:
+      create: 登録する
+      update: 更新する
