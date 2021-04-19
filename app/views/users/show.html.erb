@@ -1,0 +1,28 @@
+<h1><%= t'views.common.my_page' %></h1>
+<br>
+<p>
+  <strong><%= User.human_attribute_name(:username) %>:</strong>
+    <%= @user.username %>
+</p>
+<p>
+  <strong><%= User.human_attribute_name(:email) %>:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:postal_code) %>:</strong>
+  <%= @user.postal_code %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:address) %>:</strong>
+  <%= @user.address %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:description) %>:</strong>
+  <%= @user.description %>
+</p>
+
+
+<%= link_to t('users'), users_path %>
