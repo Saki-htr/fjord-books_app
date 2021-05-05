@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <% @users.with_attached_icon.each do |user| %>
       <tr>
         <td><%= user.email %></td>
         <td><%= user.name %></td>
