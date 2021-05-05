@@ -7,7 +7,7 @@
       <th><%= User.human_attribute_name(:name) %></th>
       <th><%= User.human_attribute_name(:postal_code) %></th>
       <th><%= User.human_attribute_name(:address) %></th>
-      <th></th>
+      <th><%= User.human_attribute_name(:icon) %></th>
     </tr>
   </thead>
 
@@ -19,6 +19,7 @@
         <td><%= user.postal_code %></td>
         <td><%= user.address %></td>
         <td><%= link_to t('views.common.show'), user %></td>
+        <td><% if user.icon.attached? %><%= image_tag user.icon %><% end %></td>
       </tr>
     <% end %>
   </tbody>
