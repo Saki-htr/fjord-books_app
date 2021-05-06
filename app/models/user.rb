@@ -16,4 +16,18 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
     end
   end
+
+  has_many :followers,
+           class_name: 'Relationship',
+           foreign_key: 'follower_id',
+           dependent: :destroy,
+           inverse_of: :follower
+  has_many :followings,
+           class_name: 'Relationship',
+           foreign_key: 'following_id',
+           dependent: :destroy,
+           inverse_of: :following
+
+  has_many :following_users, through: :followers, source: :following
+  has_many :follower_users, through: :followings, source: :follower
 end
