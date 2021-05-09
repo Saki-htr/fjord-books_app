@@ -1,4 +1,4 @@
-<h1><%= t("title.followings") %></h1>
+<h1><%= User.human_attribute_name("followings") %></h1>
 
 <table>
   <% @followings.each do |user| %>
