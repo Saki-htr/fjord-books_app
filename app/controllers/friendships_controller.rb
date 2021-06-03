@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RelationshipsController < ApplicationController
+class FriendshipsController < ApplicationController
   def create
     user = User.find(params[:follow_id])
     current_user.follow(params[:follow_id])
@@ -8,7 +8,7 @@ class RelationshipsController < ApplicationController
   end
 
   def destroy
-    Relationship.find_by(follower_id: current_user.id, following_id: params[:id]).destroy
+    Friendship.find_by(follower_id: current_user.id, following_id: params[:id]).destroy
     redirect_to user_path
   end
 end

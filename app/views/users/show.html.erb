@@ -7,7 +7,7 @@
 <p>
   <% unless @user == current_user %>
     <% if current_user.following?(@user) %>
-      <%= button_to t('views.common.unfollow'), relationship_path, method: :delete %>
+      <%= button_to t('views.common.unfollow'), friendship_path, method: :delete %>
     <% else %>
         <%= form_for(@user.followers.build) do |f| %>
           <%= hidden_field_tag :follow_id, @user.id %>
@@ -16,7 +16,6 @@
       <% end %>
   <% end %>
 </p>
-
 
 <p>
   <strong><%= User.human_attribute_name(:email) %>:</strong>

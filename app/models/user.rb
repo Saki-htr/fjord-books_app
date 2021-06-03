@@ -18,12 +18,12 @@ class User < ApplicationRecord
   end
 
   has_many :followers,
-           class_name: 'Relationship',
+           class_name: 'Friendship',
            foreign_key: 'follower_id',
            dependent: :destroy,
            inverse_of: :follower
   has_many :followings,
-           class_name: 'Relationship',
+           class_name: 'Friendship',
            foreign_key: 'following_id',
            dependent: :destroy,
            inverse_of: :following

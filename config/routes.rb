@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   end
   resources :books
   resources :users, only: %i(index show)
-  resources :relationships, only: %i(create destroy) # 追記
+  resources :friendships, only: %I(create destroy)
 end
