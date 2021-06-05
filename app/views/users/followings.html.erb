@@ -1,0 +1,16 @@
+<h1><%= User.human_attribute_name("followings") %></h1>
+
+<table>
+  <% @followings.each do |user| %>
+    <tr>
+      <td>
+        <% if user.avatar.attached? %>
+          <%= image_tag user.avatar.variant(resize: "30x30") %>
+        <% end %>
+      </td>
+      <td><%= link_to user.name, user_path(user) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to t("views.common.back"), user_path %>
