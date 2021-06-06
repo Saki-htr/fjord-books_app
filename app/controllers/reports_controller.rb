@@ -3,7 +3,8 @@ class ReportsController < ApplicationController
 
   # GET /reports
   def index
-    @reports = Report.all
+    @reports = Report.order(:id).page(params[:page])
+
   end
 
   # GET /reports/1
@@ -17,6 +18,11 @@ class ReportsController < ApplicationController
 
   # GET /reports/1/edit
   def edit
+    if @report.user == current_user
+      render "edit"
+    else
+      redirect_to reports_path
+    end
   end
 
   # POST /reports
