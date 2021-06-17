@@ -52,7 +52,7 @@
 <h2><%= t('views.common.create', name: Comment.model_name.human) %></h2>
 
 <%= form_with(model:[@report, @comment], method: :post) do |form| %>
-  <%= form.text_area :content%>
+  <%= form.text_area :content, required: true %>
   <%= form.hidden_field :report_id, value: @report.id %>
   <%= form.submit t ('views.common.comment')%>
 <% end %>
