@@ -4,4 +4,5 @@ class Report < ApplicationRecord
     validates :title
     validates :content
   end
+  has_many :comments, dependent: :destroy
 end
