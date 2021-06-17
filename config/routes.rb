@@ -3,6 +3,10 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 
+  resources :books do
+    resources :comments
+  end
+
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: "users/registrations" }
   root to: 'books#index'
