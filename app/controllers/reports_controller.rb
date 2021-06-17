@@ -33,9 +33,9 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params)
     @report.user_id = current_user.id
     if @report.save
-      redirect_back(fallback_location: root_path)
+      redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
     else
-      redirect_back(fallback_location: root_path)
+      render :new
     end
   end
 
