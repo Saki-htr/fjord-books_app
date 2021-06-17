@@ -1,14 +1,17 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
-  before_action :set_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_report, only: %i[show edit update destroy]
 
   # GET /reports
   def index
     @reports = Report.order(:id).page(params[:page])
-
   end
 
   # GET /reports/1
   def show
+    @comments = @report.comments
+    @comment = current_user.comments.new
   end
 
   # GET /reports/new
@@ -19,7 +22,7 @@ class ReportsController < ApplicationController
   # GET /reports/1/edit
   def edit
     if @report.user == current_user
-      render "edit"
+      render 'edit'
     else
       redirect_to reports_path
     end
@@ -30,36 +33,36 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params)
     @report.user_id = current_user.id
     if @report.save
-      redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
+      redirect_back(fallback_location: root_path)
     else
-      render :new
+      redirect_back(fallback_location: root_path)
     end
   end
 
   # PATCH/PUT /reports/1
   def update
-      if @report.update(report_params)
-        redirect_to @report,notice: t('controllers.common.notice_update', name: Report.model_name.human)
-      else
-        render :edit
-      end
+    if @report.update(report_params)
+      redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
+    else
+      render :edit
+    end
   end
 
   # DELETE /reports/1
-  # DELETE /reports/1.json
   def destroy
     @report.destroy
     redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_report
-      @report = Report.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def report_params
-      params.require(:report).permit(:title, :content, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_report
+    @report = Report.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def report_params
+    params.require(:report).permit(:title, :content, :user_id)
+  end
 end

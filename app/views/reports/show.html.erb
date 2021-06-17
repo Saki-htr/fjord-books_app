@@ -19,3 +19,42 @@
   <%= link_to t('views.common.edit'), edit_report_path(@report) %>
 <% end %>
 <%= link_to t('views.common.back'), reports_path %>
+
+
+<h1><%= Comment.model_name.human %></h1>
+<h2><%= t('views.common.list', name: Comment.model_name.human) %></h2>
+
+<% @comments.each do |comment| %>
+  <p>
+    <%= t ('views.common.created_at') %>:
+    <%= comment.created_at.to_s(:datetime_jp) %>
+  </p>
+  <p>
+    <%= User.human_attribute_name(:name) %>:
+    <% if comment.user.name.empty? %>
+      <%= comment.user.email %>
+    <% else %>
+      <%= comment.user.name %>
+    <% end %>
+  </p>
+  <p>
+    <%= Comment.model_name.human %>:
+    <%= comment.content %>
+  </p>
+  <br>
+<% end %>
+
+
+
+
+
+
+
+
+<h2><%= t('views.common.create', name: Comment.model_name.human) %></h2>
+
+<%= form_with(model:[@report, @comment], method: :post) do |form| %>
+  <%= form.text_area :content %>
+  <%= form.hidden_field :report_id, value: @report.id %>
+  <%= form.submit t ('views.common.comment')%>
+<% end %>

@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th><%= User.human_attribute_name(:name) %></th>
       <th><%= Report.human_attribute_name(:title) %></th>
       <th><%= Report.human_attribute_name(:content) %></th>
       <th><%= t('views.common.created_at')%></th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @reports.each do |report| %>
       <tr>
+        <td><%= report.user.name %></td>
         <td><%= report.title %></td>
         <td><%= report.content %></td>
         <td><%= report.created_at.to_s(:datetime_jp) %></td>
