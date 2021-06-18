@@ -1,0 +1,28 @@
+<h2><%= Comment.model_name.human %></h2>
+<h3><%= t('views.common.list', name: Comment.model_name.human) %></h3>
+
+<% commentable.comments.each do |comment| %>
+  <p>
+    <%= t ('views.common.created_at') %>:
+    <%= comment.created_at.to_s(:datetime_jp) %>
+  </p>
+  <p>
+    <%= User.human_attribute_name(:name) %>:
+    <% if comment.user.name.empty? %>
+      <%= comment.user.email %>
+    <% else %>
+      <%= comment.user.name %>
+    <% end %>
+  </p>
+  <p>
+    <%= Comment.model_name.human %>:
+    <%= comment.content %>
+  </p>
+  <br>
+<% end %>
+
+<h3><%= t('views.common.create', name: Comment.model_name.human) %></h3>
+<%= form_with model: [commentable, Comment.new], local: true do |form| %>
+  <%= form.text_area :content, required: true %><br>
+  <%= form.submit t ('views.common.comment') %>
+<% end %>

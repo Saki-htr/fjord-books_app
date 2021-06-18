@@ -10,8 +10,6 @@ class ReportsController < ApplicationController
 
   # GET /reports/1
   def show
-    @comments = @report.comments
-    @comment = current_user.comments.new
   end
 
   # GET /reports/new
