@@ -21,8 +21,8 @@
 <%= link_to t('views.common.back'), reports_path %>
 
 
-<%# コメントの一覧 %>
 <h1><%= Comment.model_name.human %></h1>
+<%# コメントの一覧 %>
 <h2><%= t('views.common.list', name: Comment.model_name.human) %></h2>
 
 <% @comments.each do |comment| %>
@@ -49,7 +49,7 @@
 <%# コメントの投稿 %>
 <h2><%= t('views.common.create', name: Comment.model_name.human) %></h2>
 
-<%= form_with(model:[@report, @comment], method: :post) do |form| %>
+<%= form_with(model:[@report, @comment], local: true) do |form| %>
   <%= form.text_area :content, required: true %>
   <%= form.hidden_field :report_id, value: @report.id %>
   <%= form.submit t ('views.common.comment')%>
