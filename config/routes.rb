@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
-  resources :reports do
+  resources :reports, :books do
     resources :comments, only: [:create]
-  end
-
-  resources :books do
-    resources :comments
   end
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
