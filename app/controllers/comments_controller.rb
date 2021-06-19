@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @commentable = resource.singularize.classify.constantize.find(id)
     @comment = @commentable.comments.new(comment_params.merge(user: current_user))
     if @comment.save
-      redirect_to [@commentable, @comment]
+      redirect_to [@commentable, @comments]
     else
       render :new
     end
