@@ -2,6 +2,7 @@
 <h3><%= t('views.common.list', name: Comment.model_name.human) %></h3>
 
 <% commentable.comments.each do |comment| %>
+
   <p>
     <%= t ('views.common.created_at') %>:
     <%= comment.created_at.to_s(:datetime_jp) %>
