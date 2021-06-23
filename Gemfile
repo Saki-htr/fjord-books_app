@@ -46,6 +46,7 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -67,4 +68,3 @@ gem 'kaminari'
 gem 'image_processing', '~> 1.2'
 gem 'omniauth'
 gem 'omniauth-github'
-gem 'pry-rails'
