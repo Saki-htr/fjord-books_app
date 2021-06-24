@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to [@commentable, @comments]
     else
-      render :create
+      redirect_to @commentable
     end
   end
 
