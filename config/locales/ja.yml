@@ -260,3 +260,5 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
+  reports:
+    prohibited_report: "%{name}の保存に失敗しました"
