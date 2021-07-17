@@ -54,5 +54,8 @@ class BooksTest < ApplicationSystemTestCase
     end
 
     assert_text '本が削除されました。'
+    assert_no_text 'Ruby超入門'
+    assert_no_text '分かりやすいです！'
+    assert_no_text '五十嵐邦明'
   end
 end
