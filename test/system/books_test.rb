@@ -36,8 +36,8 @@ class BooksTest < ApplicationSystemTestCase
     visit books_path
     click_on '編集'
 
-    fill_in 'タイトル', with: @book.memo
-    fill_in 'メモ', with: @book.title
+    fill_in 'タイトル', with: @book.title
+    fill_in 'メモ', with: @book.memo
     fill_in '著者', with: @book.author
     click_on '更新する'
 
