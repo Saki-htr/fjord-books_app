@@ -47,7 +47,6 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text '日報が更新されました。'
     assert_text '初めての日報'
     assert_text 'プログラミング楽しい'
-
   end
 
   test 'destroying a Report' do
