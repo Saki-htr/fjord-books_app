@@ -57,5 +57,7 @@ class ReportsTest < ApplicationSystemTestCase
     end
 
     assert_text '日報が削除されました。'
+    assert_no_text '課題提出'
+    assert_no_text 'lsコマンド難しい'
   end
 end
