@@ -45,7 +45,9 @@ class ReportsTest < ApplicationSystemTestCase
     click_on '更新する'
 
     assert_text '日報が更新されました。'
-    assert_text @report.title
+    assert_text '初めての日報'
+    assert_text 'プログラミング楽しい'
+
   end
 
   test 'destroying a Report' do
