@@ -42,6 +42,9 @@ class BooksTest < ApplicationSystemTestCase
     click_on '更新する'
 
     assert_text '本が更新されました。'
+    assert_text 'プロを目指す人のためのRuby入門'
+    assert_text '凄い本です！'
+    assert_text '伊藤淳一'
   end
 
   test 'destroying a Book' do
